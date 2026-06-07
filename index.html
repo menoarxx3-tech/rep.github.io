@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Kanagjegji | Familja Aliu - Ftesa Magjike</title>
+    <title>Kanagjegji | Familja Aliu - Ftesa Magjike me Kuq e Lule</title>
     <!-- Google Fonts: Elegant & Modern -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome 6 -->
@@ -22,7 +22,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, #1f0f08, #0a0502);
+            background: radial-gradient(circle at center, #2c0f08, #0a0502);
             z-index: 9999;
             display: flex;
             flex-direction: column;
@@ -34,11 +34,6 @@
             opacity: 1;
         }
 
-        /* Ensure loader is always on top and click-blocked */
-        .loading-overlay * {
-            user-select: none;
-        }
-
         .loading-content {
             text-align: center;
             transform: scale(0.95);
@@ -47,25 +42,25 @@
         }
 
         @keyframes breathingGlow {
-            0% { transform: scale(0.95); text-shadow: 0 0 10px rgba(255,215,150,0.5); }
-            100% { transform: scale(1.05); text-shadow: 0 0 35px rgba(255,200,120,0.9); }
+            0% { transform: scale(0.95); text-shadow: 0 0 10px rgba(220, 60, 50, 0.5); }
+            100% { transform: scale(1.05); text-shadow: 0 0 35px rgba(200, 40, 30, 0.9); }
         }
 
         .golden-ring {
             width: 110px;
             height: 110px;
-            border: 4px solid rgba(221, 138, 106, 0.6);
-            border-top: 4px solid #ffd966;
+            border: 4px solid rgba(180, 50, 40, 0.5);
+            border-top: 4px solid #d44c3f;
             border-radius: 50%;
             margin: 0 auto 1.8rem;
             animation: spinGolden 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
-            box-shadow: 0 0 30px rgba(255, 200, 100, 0.6);
+            box-shadow: 0 0 30px rgba(200, 60, 40, 0.6);
         }
 
         @keyframes spinGolden {
-            0% { transform: rotate(0deg); border-top-color: #ffbc6e; border-right-color: #dd8a6e; }
-            50% { transform: rotate(180deg); border-top-color: #e69b7a; border-left-color: #ffe6b3; }
-            100% { transform: rotate(360deg); border-top-color: #ffbc6e; border-right-color: #dd8a6e; }
+            0% { transform: rotate(0deg); border-top-color: #e35f4f; border-right-color: #b33a2c; }
+            50% { transform: rotate(180deg); border-top-color: #c94b3c; border-left-color: #e67a6a; }
+            100% { transform: rotate(360deg); border-top-color: #e35f4f; border-right-color: #b33a2c; }
         }
 
         .loading-text {
@@ -74,7 +69,7 @@
             font-weight: 400;
             letter-spacing: 8px;
             margin-top: 0.5rem;
-            background: linear-gradient(135deg, #f7d48b, #e4a575);
+            background: linear-gradient(135deg, #f5b7a1, #d44c3f);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
@@ -91,13 +86,13 @@
             display: inline-block;
             width: 12px;
             height: 12px;
-            background: #e4a575;
+            background: #d44c3f;
             border-radius: 50%;
             margin: 0 6px;
             animation: bounceDot 1s infinite alternate;
         }
-        .loading-dots span:nth-child(2) { animation-delay: 0.2s; background: #dd8a6e; }
-        .loading-dots span:nth-child(3) { animation-delay: 0.4s; background: #ffbc6e; }
+        .loading-dots span:nth-child(2) { animation-delay: 0.2s; background: #b33a2c; }
+        .loading-dots span:nth-child(3) { animation-delay: 0.4s; background: #e35f4f; }
 
         @keyframes bounceDot {
             0% { transform: translateY(0px); opacity: 0.4; }
@@ -117,7 +112,7 @@
 
         .burst-particle {
             position: absolute;
-            background: radial-gradient(circle, #ffd89b, #e9a17a);
+            background: radial-gradient(circle, #e6735f, #c94030, #ff8a75);
             border-radius: 50%;
             filter: blur(2px);
             animation: burstFly 0.9s ease-out forwards;
@@ -128,10 +123,10 @@
             100% { transform: scale(1.5) translate(var(--x), var(--y)); opacity: 0; }
         }
 
-        /* body & rest of the ultra-beautiful design */
+        /* body & rest of the ultra-beautiful design with RED & FLORAL accents */
         body {
             font-family: 'Montserrat', sans-serif;
-            background: #fef7f0;
+            background: #fff8f2;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -141,7 +136,7 @@
             overflow-x: hidden;
         }
 
-        /* Spectacular animated aurora background */
+        /* Spectacular animated background with warm red undertones */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -149,7 +144,7 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            background: linear-gradient(125deg, #fae6d4, #fde0cf, #feece2, #fce4d4, #fff0e6);
+            background: linear-gradient(125deg, #fde9e2, #ffe6e0, #feece5, #fff0ea, #ffefea);
             background-size: 400% 400%;
             animation: gradientShift 14s ease infinite;
         }
@@ -159,7 +154,7 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Swirling golden dust */
+        /* Swirling golden-red dust */
         .golden-dust {
             position: fixed;
             top: 0;
@@ -172,7 +167,7 @@
         }
         .dust {
             position: absolute;
-            background: radial-gradient(circle, rgba(255,200,120,0.5), transparent);
+            background: radial-gradient(circle, rgba(200, 70, 50, 0.4), rgba(230, 100, 70, 0.2));
             border-radius: 50%;
             filter: blur(5px);
             animation: driftDust 16s infinite linear;
@@ -188,17 +183,16 @@
         .invitation-card {
             position: relative;
             z-index: 20;
-            max-width: 620px;
+            max-width: 650px;
             width: 100%;
-            background: rgba(255, 252, 246, 0.96);
+            background: rgba(255, 252, 248, 0.97);
             backdrop-filter: blur(4px);
             border-radius: 70px 36px 70px 36px;
-            box-shadow: 0 45px 85px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(220, 130, 90, 0.3), 0 20px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 45px 85px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(200, 70, 50, 0.35), 0 20px 35px rgba(0,0,0,0.1);
             overflow: hidden;
             transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.2);
             opacity: 0;
             transform: translateY(60px) scale(0.96);
-            /* initial animation will be re-triggered after load, but set base */
         }
 
         @keyframes cardReveal {
@@ -211,9 +205,9 @@
             box-shadow: 0 55px 90px rgba(0, 0, 0, 0.2);
         }
 
-        /* Header with luxurious ornament */
+        /* Header with luxurious ornament & rich red gradient */
         .card-header {
-            background: linear-gradient(145deg, #dd8e6e, #bc674a, #d97f5c);
+            background: linear-gradient(145deg, #c94b3c, #a83226, #d95c4a);
             padding: 1.8rem 1.5rem 2rem;
             text-align: center;
             clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
@@ -221,18 +215,18 @@
             overflow: hidden;
         }
         .card-header::before {
-            content: "✨";
+            content: "🌹";
             position: absolute;
-            font-size: 100px;
+            font-size: 110px;
             right: -20px;
             bottom: -30px;
-            opacity: 0.12;
+            opacity: 0.15;
             pointer-events: none;
-            transform: rotate(10deg);
+            transform: rotate(15deg);
         }
         .card-header h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.4rem;
+            font-size: 2.6rem;
             font-weight: 700;
             color: #fff7ea;
             letter-spacing: 2px;
@@ -254,72 +248,95 @@
         }
         .star-icon {
             animation: celestialSpin 2.2s infinite;
+            color: #ffd966;
         }
         @keyframes celestialSpin {
             0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(15deg) scale(1.2); text-shadow: 0 0 8px gold; }
+            50% { transform: rotate(15deg) scale(1.2); text-shadow: 0 0 8px #ffb347; }
             100% { transform: rotate(0deg) scale(1); }
         }
 
         /* Body */
         .card-body {
-            padding: 1.8rem 1.5rem 1.5rem;
+            padding: 1.8rem 1.8rem 1.5rem;
             text-align: center;
         }
         .invite-greeting {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 600;
-            color: #bc735a;
-            background: #fef0ea;
+            color: #b34a38;
+            background: #fff0ea;
             display: inline-block;
-            padding: 0.3rem 1.5rem;
+            padding: 0.4rem 1.8rem;
             border-radius: 60px;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
+            border-left: 3px solid #d44c3f;
+            border-right: 3px solid #d44c3f;
         }
         .main-message {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #4e3a30;
-            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #4e2e24;
+            margin-bottom: 1rem;
+            background: rgba(255, 240, 235, 0.4);
+            padding: 0.8rem;
+            border-radius: 48px;
+        }
+        .main-message strong {
+            color: #c03d2c;
+            font-weight: 700;
         }
         .family-name {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
-            margin: 0.2rem 0 1rem;
+            margin: 0.5rem 0 1rem;
             letter-spacing: 2px;
-            background: linear-gradient(135deg, #c06646, #e49473);
+            background: linear-gradient(135deg, #b83a28, #e0745e);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
         }
+        /* FLORAL & RED NUANCES */
         .date-section {
-            background: rgba(253, 235, 224, 0.8);
+            background: rgba(255, 235, 228, 0.9);
             border-radius: 70px;
             padding: 1rem;
             margin: 1.2rem 0;
-            border: 1px solid #f6cfbc;
+            border: 1px solid #f0b6a8;
             transition: 0.3s;
             animation: gentlePulse 2s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        .date-section::after {
+            content: "🌹";
+            position: absolute;
+            bottom: 5px;
+            right: 15px;
+            font-size: 24px;
+            opacity: 0.2;
+            pointer-events: none;
         }
         @keyframes gentlePulse {
-            0% { box-shadow: 0 0 0 0 rgba(220, 142, 110, 0.3); }
-            70% { box-shadow: 0 0 0 10px rgba(220, 142, 110, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(220, 142, 110, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(200, 70, 50, 0.2); }
+            70% { box-shadow: 0 0 0 10px rgba(200, 70, 50, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(200, 70, 50, 0); }
         }
         .day-name {
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             letter-spacing: 2px;
-            color: #b25e42;
+            color: #b54331;
         }
         .date-number {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: 800;
-            color: #bd5b38;
+            color: #b33a2c;
             line-height: 1;
             margin: 0.1rem 0;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.05);
         }
         .time-info {
             background: white;
@@ -328,11 +345,13 @@
             border-radius: 60px;
             font-size: 0.8rem;
             font-weight: 700;
-            color: #bc6a4e;
+            color: #c24634;
             margin-top: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #f0b6a8;
         }
         .location-container {
-            background: #fffaf5;
+            background: #fffaf7;
             border-radius: 60px;
             padding: 0.8rem 1rem;
             margin: 1.2rem 0;
@@ -341,28 +360,28 @@
             justify-content: center;
             gap: 15px;
             flex-wrap: wrap;
-            border: 1px solid #f7cdbb;
+            border: 1px solid #ecc7bc;
         }
         .location-icon {
-            background: linear-gradient(145deg, #dd8a6a, #c26544);
-            width: 52px;
-            height: 52px;
+            background: linear-gradient(145deg, #d44c3f, #a83226);
+            width: 54px;
+            height: 54px;
             border-radius: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             box-shadow: 0 8px 18px rgba(0,0,0,0.1);
         }
         .location-text {
             font-weight: 700;
-            color: #6b4538;
+            color: #6b3a2c;
             font-size: 1rem;
             text-align: center;
         }
         .animated-text {
-            background: linear-gradient(130deg, #dd8a6a, #bf6d50, #e69b78);
+            background: linear-gradient(130deg, #d44c3f, #b83a28, #e07560);
             background-size: 200% auto;
             background-clip: text;
             -webkit-background-clip: text;
@@ -376,33 +395,53 @@
         }
         .btn-map {
             background: transparent;
-            border: 2px solid #dd8a6a;
+            border: 2px solid #d44c3f;
             padding: 0.45rem 1.2rem;
             border-radius: 50px;
             font-weight: 700;
-            color: #dd8a6a;
+            color: #d44c3f;
             transition: all 0.3s ease;
             cursor: pointer;
             font-size: 0.8rem;
         }
         .btn-map:active {
             transform: scale(0.97);
+            background: #d44c3f20;
         }
         .rsvp-note {
-            background: #fef4ef;
+            background: #fef0ec;
             border-radius: 50px;
             padding: 0.9rem;
             margin: 1rem 0;
+            border: 1px solid #f3cdc2;
+            position: relative;
+        }
+        .rsvp-note::before {
+            content: "🌸";
+            position: absolute;
+            left: 12px;
+            top: -12px;
+            font-size: 20px;
+            opacity: 0.6;
+        }
+        .rsvp-note::after {
+            content: "🌺";
+            position: absolute;
+            right: 12px;
+            bottom: -10px;
+            font-size: 20px;
+            opacity: 0.6;
         }
         .footer-note {
-            background: #f6e9e2;
+            background: #f5e4de;
             padding: 0.8rem;
             text-align: center;
-            font-size: 0.65rem;
-            color: #a06a54;
+            font-size: 0.7rem;
+            color: #9b4a38;
             border-radius: 0 0 68px 32px;
+            border-top: 1px dashed #d99a88;
         }
-        /* Floating ornaments */
+        /* Floating ornaments with more red & floral symbols */
         .floating-ornaments {
             position: fixed;
             bottom: 0;
@@ -412,20 +451,16 @@
             z-index: 15;
         }
         
-        /* RESPONSIVE (Mobile first perfection) */
+        /* RESPONSIVE */
         @media (max-width: 600px) {
-            body {
-                padding: 0.8rem;
-            }
+            body { padding: 0.8rem; }
             .card-header h1 { font-size: 2rem; }
             .date-number { font-size: 3rem; }
             .family-name { font-size: 1.6rem; }
-            .main-message { font-size: 0.85rem; }
+            .main-message { font-size: 0.88rem; padding: 0.6rem; }
             .loading-text { font-size: 1.4rem; letter-spacing: 4px; }
             .golden-ring { width: 85px; height: 85px; }
             .celebration-badge span { font-size: 0.7rem; }
-            .location-text { font-size: 0.9rem; }
-            .btn-map { padding: 0.35rem 1rem; font-size: 0.75rem; }
         }
         
         @media (max-width: 450px) {
@@ -441,12 +476,22 @@
             100% { transform: scale(1); }
         }
         
-        /* floatAround for sparkles */
         @keyframes floatAround {
             0% { transform: translateY(0vh) rotate(0deg); opacity: 0; }
             20% { opacity: 0.6; }
             80% { opacity: 0.5; }
             100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* extra floral decoration */
+        .floral-icon {
+            display: inline-block;
+            animation: swayFlower 3s infinite ease-in-out;
+        }
+        @keyframes swayFlower {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(8deg); }
+            100% { transform: rotate(0deg); }
         }
     </style>
 </head>
@@ -460,7 +505,7 @@
             <div class="loading-dots" style="margin-top: 20px;">
                 <span></span><span></span><span></span>
             </div>
-            <div style="margin-top: 18px; font-size: 0.8rem; color: #ecc8a7; letter-spacing: 1px;">Duke hapur dyert e festës...</div>
+            <div style="margin-top: 18px; font-size: 0.8rem; color: #f0aa99; letter-spacing: 1px;">Duke hapur dyert e festës...</div>
         </div>
     </div>
 
@@ -472,27 +517,25 @@
     <div class="golden-dust" id="goldenDust"></div>
     <div class="floating-ornaments" id="floatingOrnaments"></div>
 
-    <!-- INVITATION CARD -->
+    <!-- INVITATION CARD - UPDATED TEXT, NUMBER, REMOVED DEADLINE, RICH RED & FLORAL -->
     <div class="invitation-card" id="inviteCard" style="opacity:0;">
         <div class="card-header">
             <h1 style="color: #fff2e2;">✨ Kanagjegji ✨</h1>
-            <div class="celebration-badge">
-                <i class="fas fa-star star-icon" style="color:#ffea9e;"></i> 
-                <span>Festë e Shenjtë & Traditë</span> 
-                <i class="fas fa-star star-icon" style="color:#ffea9e;"></i>
-            </div>
+
         </div>
         <div class="card-body">
             <div class="invite-greeting">
                 <i class="fas fa-envelope-open-text"></i> Me nder dhe kënaqësi
             </div>
+            
+            <!-- New custom text as requested: heartfelt invitation -->
             <div class="main-message">
-                <strong>ME SHUMË KËNAQËSI</strong> JU FTOJMË TË MERRNI PJESË NË <br>
-                <strong>FESTËN E MADHËRISHME TË KANAGJEGJIT</strong>, E CILA ORGANIZOHET PËR <br>
-                NDER TË <strong>YLLIT TË SHTËPISË SONË</strong>.
+                Me nder dhe kënaqësi ju ftojmë të merrni pjesë në një nga momentet më të rëndësishme të familjes sonë.<br><br>
+                Tani që vajza jonë po bëhet nuse, dëshirojmë që këtë moment të veçantë dhe të paharrueshëm ta festojmë së bashku me ju në festën e <strong>Kanagjegjit</strong>, e organizuar për nder të yllit të shtëpisë sonë.
             </div>
+            
             <div class="family-name">
-                Me respekt ✦ Familja Aliu ✦
+                ✦ Familja Aliu ✦
             </div>
 
             <div class="date-section">
@@ -517,37 +560,35 @@
                 </button>
             </div>
 
+            <!-- RSVP SECTION: removed deadline, updated phone number exactly as requested -->
             <div class="rsvp-note">
-                <p><i class="fas fa-heart" style="color:#dc8e6e; animation: heartbeat 1s infinite;"></i> <strong>Konfirmimi i pjesëmarrjes</strong> deri më <strong>20 Korrik 2026</strong> <i class="fas fa-heart" style="color:#dc8e6e; animation: heartbeat 1s infinite 0.3s;"></i></p>
-                <p style="margin-top: 8px;"><i class="fas fa-phone-alt"></i> +383 44 123 456 &nbsp;|&nbsp; <i class="fab fa-whatsapp"></i> Familja Aliu</p>
+                <p><i class="fas fa-heart" style="color:#d44c3f; animation: heartbeat 1s infinite;"></i> <strong>Konfirmimi i pjesëmarrjes</strong> <i class="fas fa-heart" style="color:#d44c3f; animation: heartbeat 1s infinite 0.3s;"></i></p>
+                <p style="margin-top: 8px; font-size: 1rem;"><i class="fas fa-phone-alt"></i> <strong>+383 45 862 465</strong> &nbsp;|&nbsp; <i class="fab fa-whatsapp"></i> Familja Aliu</p>
             </div>
 
             <div class="footer-note">
-                <i class="far fa-smile"></i> Prania juaj ndriçon çdo cep të kësaj nate magjike. <i class="far fa-smile"></i>
+                <i class="fas fa-flower floral-icon"></i> Prania juaj ndriçon çdo cep të kësaj nate magjike. <i class="fas fa-leaf floral-icon"></i>
             </div>
         </div>
     </div>
 
     <script>
         (function() {
-            // FIX: ensure loading screen is removed on mobile reliably.
-            // We use both 'load' event and a safety timeout, also force hardware acceleration.
-            
-            // Helper: generate dust / ornaments
+            // Helper: generate dust / ornaments with more red/floral feel
             function createGoldenDust() {
                 const dustContainer = document.getElementById('goldenDust');
                 if(!dustContainer) return;
-                for (let i = 0; i < 100; i++) {
+                for (let i = 0; i < 120; i++) {
                     const dust = document.createElement('div');
                     dust.classList.add('dust');
-                    const size = 3 + Math.random() * 22;
+                    const size = 3 + Math.random() * 24;
                     dust.style.width = size + 'px';
                     dust.style.height = size + 'px';
                     dust.style.left = Math.random() * 100 + '%';
                     dust.style.animationDuration = 10 + Math.random() * 18 + 's';
                     dust.style.animationDelay = Math.random() * 12 + 's';
-                    dust.style.opacity = 0.2 + Math.random() * 0.4;
-                    dust.style.background = `radial-gradient(circle, rgba(255,180,100,${0.3+Math.random()*0.5}), rgba(240,140,80,0.2))`;
+                    dust.style.opacity = 0.2 + Math.random() * 0.45;
+                    dust.style.background = `radial-gradient(circle, rgba(210, 80, 60, ${0.3+Math.random()*0.5}), rgba(180, 60, 40, 0.2))`;
                     dustContainer.appendChild(dust);
                 }
             }
@@ -555,22 +596,22 @@
             function createFloatingOrnamentsSystem() {
                 const ornamentContainer = document.getElementById('floatingOrnaments');
                 if(!ornamentContainer) return;
-                const symbols = ['🌸', '🌺', '✨', '⭐', '🌹', '💫', '🍂', '🌙'];
+                const symbols = ['🌸', '🌹', '🌺', '✨', '⭐', '💮', '🏵️', '🌼', '🍂', '❤️'];
                 function addOne() {
                     const ornament = document.createElement('div');
                     ornament.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
                     ornament.style.position = 'absolute';
                     ornament.style.bottom = '-40px';
                     ornament.style.left = Math.random() * 100 + '%';
-                    ornament.style.fontSize = 18 + Math.random() * 32 + 'px';
-                    ornament.style.opacity = 0.4 + Math.random() * 0.5;
+                    ornament.style.fontSize = 18 + Math.random() * 34 + 'px';
+                    ornament.style.opacity = 0.5 + Math.random() * 0.5;
                     ornament.style.pointerEvents = 'none';
-                    ornament.style.filter = 'drop-shadow(0 0 5px gold)';
+                    ornament.style.filter = 'drop-shadow(0 0 5px rgba(200,70,50,0.6))';
                     ornament.style.animation = `floatOrnament ${6 + Math.random() * 8}s linear forwards`;
                     ornamentContainer.appendChild(ornament);
                     setTimeout(() => ornament.remove(), 9000);
                 }
-                setInterval(addOne, 900);
+                setInterval(addOne, 750);
                 const floatKeyframes = `
                     @keyframes floatOrnament {
                         0% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
@@ -588,32 +629,36 @@
             function triggerBurstEffect() {
                 const burstContainer = document.getElementById('burstContainer');
                 if(!burstContainer) return;
-                for (let i = 0; i < 160; i++) {
+                // More red and floral burst
+                for (let i = 0; i < 200; i++) {
                     const particle = document.createElement('div');
                     particle.classList.add('burst-particle');
-                    const size = 5 + Math.random() * 26;
+                    const size = 5 + Math.random() * 28;
                     particle.style.width = size + 'px';
                     particle.style.height = size + 'px';
-                    particle.style.left = (window.innerWidth / 2) + (Math.random() - 0.5) * 90 + 'px';
-                    particle.style.top = (window.innerHeight / 2) + (Math.random() - 0.5) * 90 + 'px';
+                    particle.style.left = (window.innerWidth / 2) + (Math.random() - 0.5) * 100 + 'px';
+                    particle.style.top = (window.innerHeight / 2) + (Math.random() - 0.5) * 100 + 'px';
                     const angle = Math.random() * Math.PI * 2;
-                    const velocity = 180 + Math.random() * 380;
+                    const velocity = 180 + Math.random() * 400;
                     const xMove = Math.cos(angle) * velocity;
                     const yMove = Math.sin(angle) * velocity;
                     particle.style.setProperty('--x', xMove + 'px');
                     particle.style.setProperty('--y', yMove + 'px');
-                    particle.style.background = `radial-gradient(circle, #FFD966, #E59866, #D2694D)`;
-                    particle.style.boxShadow = '0 0 12px rgba(255,200,100,0.8)';
+                    const redShade = `radial-gradient(circle, #ff6b57, #c94030, #e35f4f)`;
+                    particle.style.background = redShade;
+                    particle.style.boxShadow = '0 0 14px rgba(220, 70, 50, 0.9)';
                     burstContainer.appendChild(particle);
                     setTimeout(() => particle.remove(), 950);
                 }
-                for (let s = 0; s < 55; s++) {
+                // Flower-like sparks
+                for (let s = 0; s < 70; s++) {
                     const spark = document.createElement('div');
-                    spark.innerHTML = '✨';
+                    const flowerSymbol = ['🌹', '🌸', '🌺', '✨'][Math.floor(Math.random()*4)];
+                    spark.innerHTML = flowerSymbol;
                     spark.style.position = 'fixed';
-                    spark.style.left = (window.innerWidth / 2) + (Math.random() - 0.5) * 110 + 'px';
-                    spark.style.top = (window.innerHeight / 2) + (Math.random() - 0.5) * 110 + 'px';
-                    spark.style.fontSize = 18 + Math.random() * 28 + 'px';
+                    spark.style.left = (window.innerWidth / 2) + (Math.random() - 0.5) * 120 + 'px';
+                    spark.style.top = (window.innerHeight / 2) + (Math.random() - 0.5) * 120 + 'px';
+                    spark.style.fontSize = 20 + Math.random() * 32 + 'px';
                     spark.style.pointerEvents = 'none';
                     spark.style.zIndex = '10001';
                     spark.style.opacity = '0.9';
@@ -624,7 +669,7 @@
                 const sparkKey = `
                     @keyframes sparkFlyMobile {
                         0% { transform: scale(0.3) translate(0,0); opacity: 1; }
-                        100% { transform: scale(1.8) translate(${Math.random() * 180 - 90}px, ${Math.random() * -280 - 40}px); opacity: 0; }
+                        100% { transform: scale(1.8) translate(${Math.random() * 200 - 100}px, ${Math.random() * -300 - 40}px); opacity: 0; }
                     }
                 `;
                 if(!document.querySelector('#dynamicSparkStyle')) {
@@ -635,57 +680,45 @@
                 }
             }
             
-            // Function to safely dismiss loader and reveal content
             function dismissLoaderAndReveal() {
                 const loader = document.getElementById('loadingOverlay');
-                if (!loader) return;
-                // Ensure we only fire once
-                if (loader.getAttribute('data-dismissed') === 'true') return;
+                if (!loader || loader.getAttribute('data-dismissed') === 'true') return;
                 loader.setAttribute('data-dismissed', 'true');
-                
-                // Fade out loader
                 loader.style.transition = 'opacity 0.9s cubic-bezier(0.2, 0.9, 0.4, 1), visibility 0.9s';
                 loader.style.opacity = '0';
                 loader.style.visibility = 'hidden';
-                
-                // Trigger burst effect
                 triggerBurstEffect();
-                
-                // Animate card entrance
                 const card = document.getElementById('inviteCard');
                 if(card) {
                     card.style.animation = 'none';
-                    // force reflow
                     void card.offsetWidth;
                     card.style.animation = 'cardReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards';
                     card.style.opacity = '1';
                 }
             }
             
-            // Background visual elements init
             createGoldenDust();
             createFloatingOrnamentsSystem();
             
-            // extra sparkle trail on golden-dust layer
-            function extraSparkleTrail() {
+            // extra floral sparkles on golden-dust
+            function extraFloralTrail() {
                 const container = document.getElementById('goldenDust');
                 if(!container) return;
-                for (let i=0;i<35;i++) {
+                for (let i=0;i<45;i++) {
                     let flake = document.createElement('div');
-                    flake.innerHTML = '✦';
+                    flake.innerHTML = '🌹';
                     flake.style.position = 'absolute';
-                    flake.style.fontSize = '10px';
-                    flake.style.color = `rgba(220,140,90,${0.3+Math.random()*0.5})`;
+                    flake.style.fontSize = '9px';
+                    flake.style.color = `rgba(200, 70, 50, 0.5)`;
                     flake.style.left = Math.random() * 100 + '%';
                     flake.style.top = Math.random() * 100 + '%';
-                    flake.style.animation = `floatAround 14s infinite linear`;
+                    flake.style.animation = `floatAround 15s infinite linear`;
                     flake.style.pointerEvents = 'none';
                     container.appendChild(flake);
                 }
             }
-            extraSparkleTrail();
+            extraFloralTrail();
             
-            // Map button
             const mapBtn = document.getElementById('openMapBtn');
             if(mapBtn) {
                 mapBtn.addEventListener('click', (e) => {
@@ -694,8 +727,6 @@
                 });
             }
             
-            // MOBILE FIX: Ensure loader disappears even if load event is delayed or images not triggered
-            // Use both 'load' and a robust timeout to guarantee removal after max 3.2 seconds.
             let loadingCompleted = false;
             function finalDismiss() {
                 if(loadingCompleted) return;
@@ -704,29 +735,11 @@
             }
             
             window.addEventListener('load', function() {
-                // Small delay after load to ensure smooth transition but not too long
                 setTimeout(finalDismiss, 400);
             });
-            
-            // Safety fallback for any weird mobile scenario: force dismiss after 3 seconds max.
             setTimeout(function() {
-                if(!loadingCompleted) {
-                    console.log("Safety fallback: forcing loader dismiss");
-                    finalDismiss();
-                }
+                if(!loadingCompleted) finalDismiss();
             }, 3000);
-            
-            // Touch events to avoid any sticky loader on interactive elements (just in case)
-            document.body.addEventListener('touchstart', function(){}, {passive: true});
-            
-            // Add interactive pulse for date section on mobile/desktop
-            const dateSec = document.querySelector('.date-section');
-            if(dateSec) {
-                dateSec.addEventListener('click', () => {
-                    dateSec.style.transform = 'scale(1.01)';
-                    setTimeout(() => { dateSec.style.transform = ''; }, 200);
-                });
-            }
         })();
     </script>
 </body>
