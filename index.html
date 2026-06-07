@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Kanagjegji | Familja Aliu - Ftesa Magjike</title>
     <!-- Google Fonts: Elegant & Modern -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
             box-sizing: border-box;
         }
 
-        /* --- SUPERB LOADING & INTRO ANIMATIONS (MAXIMAL) --- */
+        /* --- SUPERB LOADING & INTRO ANIMATIONS (MAXIMAL & MOBILE-FIXED) --- */
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -29,15 +29,21 @@
             align-items: center;
             justify-content: center;
             backdrop-filter: blur(8px);
-            transition: opacity 1.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), visibility 1.8s;
+            transition: opacity 1.2s cubic-bezier(0.2, 0.9, 0.4, 1.1), visibility 1.2s;
             visibility: visible;
             opacity: 1;
+        }
+
+        /* Ensure loader is always on top and click-blocked */
+        .loading-overlay * {
+            user-select: none;
         }
 
         .loading-content {
             text-align: center;
             transform: scale(0.95);
             animation: breathingGlow 1.4s ease-in-out infinite alternate;
+            padding: 1rem;
         }
 
         @keyframes breathingGlow {
@@ -46,12 +52,12 @@
         }
 
         .golden-ring {
-            width: 120px;
-            height: 120px;
+            width: 110px;
+            height: 110px;
             border: 4px solid rgba(221, 138, 106, 0.6);
             border-top: 4px solid #ffd966;
             border-radius: 50%;
-            margin: 0 auto 2rem;
+            margin: 0 auto 1.8rem;
             animation: spinGolden 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
             box-shadow: 0 0 30px rgba(255, 200, 100, 0.6);
         }
@@ -64,11 +70,10 @@
 
         .loading-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 400;
-            color: #fbe9c3;
             letter-spacing: 8px;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
             background: linear-gradient(135deg, #f7d48b, #e4a575);
             background-clip: text;
             -webkit-background-clip: text;
@@ -78,7 +83,7 @@
 
         @keyframes textWave {
             0% { letter-spacing: 4px; opacity: 0.7; }
-            50% { letter-spacing: 12px; opacity: 1; }
+            50% { letter-spacing: 10px; opacity: 1; }
             100% { letter-spacing: 4px; opacity: 0.7; }
         }
 
@@ -115,7 +120,7 @@
             background: radial-gradient(circle, #ffd89b, #e9a17a);
             border-radius: 50%;
             filter: blur(2px);
-            animation: burstFly 1s ease-out forwards;
+            animation: burstFly 0.9s ease-out forwards;
         }
 
         @keyframes burstFly {
@@ -131,7 +136,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            padding: 1rem;
             position: relative;
             overflow-x: hidden;
         }
@@ -179,7 +184,7 @@
             100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
         }
 
-        /* Main Card ultimate elegance */
+        /* Main Card ultimate elegance & fully responsive */
         .invitation-card {
             position: relative;
             z-index: 20;
@@ -193,7 +198,7 @@
             transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.2);
             opacity: 0;
             transform: translateY(60px) scale(0.96);
-            animation: cardReveal 1.6s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            /* initial animation will be re-triggered after load, but set base */
         }
 
         @keyframes cardReveal {
@@ -209,7 +214,7 @@
         /* Header with luxurious ornament */
         .card-header {
             background: linear-gradient(145deg, #dd8e6e, #bc674a, #d97f5c);
-            padding: 2rem 2rem 2rem;
+            padding: 1.8rem 1.5rem 2rem;
             text-align: center;
             clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
             position: relative;
@@ -218,7 +223,7 @@
         .card-header::before {
             content: "✨";
             position: absolute;
-            font-size: 110px;
+            font-size: 100px;
             right: -20px;
             bottom: -30px;
             opacity: 0.12;
@@ -227,7 +232,7 @@
         }
         .card-header h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.8rem;
+            font-size: 2.4rem;
             font-weight: 700;
             color: #fff7ea;
             letter-spacing: 2px;
@@ -236,13 +241,16 @@
         .celebration-badge {
             background: rgba(255,240,225,0.3);
             backdrop-filter: blur(12px);
-            padding: 0.4rem 1.6rem;
+            padding: 0.4rem 1.2rem;
             border-radius: 100px;
             font-weight: 600;
             color: #fff3e8;
             margin-top: 14px;
             display: inline-flex;
             gap: 10px;
+            font-size: 0.8rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .star-icon {
             animation: celestialSpin 2.2s infinite;
@@ -255,31 +263,29 @@
 
         /* Body */
         .card-body {
-            padding: 2rem 2rem 1.8rem;
+            padding: 1.8rem 1.5rem 1.5rem;
             text-align: center;
         }
         .invite-greeting {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             color: #bc735a;
             background: #fef0ea;
             display: inline-block;
-            padding: 0.4rem 2rem;
+            padding: 0.3rem 1.5rem;
             border-radius: 60px;
-            margin-bottom: 1.3rem;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            margin-bottom: 1.2rem;
         }
         .main-message {
-            font-size: 1rem;
-            line-height: 1.7;
+            font-size: 0.95rem;
+            line-height: 1.6;
             color: #4e3a30;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
         .family-name {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: #bd6e50;
             margin: 0.2rem 0 1rem;
             letter-spacing: 2px;
             background: linear-gradient(135deg, #c06646, #e49473);
@@ -289,73 +295,71 @@
         }
         .date-section {
             background: rgba(253, 235, 224, 0.8);
-            border-radius: 90px;
-            padding: 1.2rem;
-            margin: 1.5rem 0;
+            border-radius: 70px;
+            padding: 1rem;
+            margin: 1.2rem 0;
             border: 1px solid #f6cfbc;
             transition: 0.3s;
             animation: gentlePulse 2s infinite;
         }
         @keyframes gentlePulse {
             0% { box-shadow: 0 0 0 0 rgba(220, 142, 110, 0.3); }
-            70% { box-shadow: 0 0 0 12px rgba(220, 142, 110, 0); }
+            70% { box-shadow: 0 0 0 10px rgba(220, 142, 110, 0); }
             100% { box-shadow: 0 0 0 0 rgba(220, 142, 110, 0); }
         }
         .day-name {
             font-weight: 700;
-            font-size: 1rem;
-            letter-spacing: 3px;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
             color: #b25e42;
         }
         .date-number {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 4.2rem;
+            font-size: 3.5rem;
             font-weight: 800;
             color: #bd5b38;
             line-height: 1;
             margin: 0.1rem 0;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.05);
         }
         .time-info {
             background: white;
             display: inline-block;
-            padding: 0.4rem 1.6rem;
+            padding: 0.3rem 1.2rem;
             border-radius: 60px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 700;
             color: #bc6a4e;
-            margin-top: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-top: 8px;
         }
         .location-container {
             background: #fffaf5;
-            border-radius: 70px;
-            padding: 1rem 1.2rem;
-            margin: 1.5rem 0;
+            border-radius: 60px;
+            padding: 0.8rem 1rem;
+            margin: 1.2rem 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             flex-wrap: wrap;
             border: 1px solid #f7cdbb;
-            transition: all 0.2s;
         }
         .location-icon {
             background: linear-gradient(145deg, #dd8a6a, #c26544);
-            width: 56px;
-            height: 56px;
+            width: 52px;
+            height: 52px;
             border-radius: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.6rem;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            font-size: 1.4rem;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.1);
         }
         .location-text {
             font-weight: 700;
             color: #6b4538;
-            font-size: 1.1rem;
+            font-size: 1rem;
+            text-align: center;
         }
         .animated-text {
             background: linear-gradient(130deg, #dd8a6a, #bf6d50, #e69b78);
@@ -373,36 +377,32 @@
         .btn-map {
             background: transparent;
             border: 2px solid #dd8a6a;
-            padding: 0.5rem 1.4rem;
+            padding: 0.45rem 1.2rem;
             border-radius: 50px;
             font-weight: 700;
             color: #dd8a6a;
             transition: all 0.3s ease;
             cursor: pointer;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
         }
-        .btn-map:hover {
-            background: #dd8a6a;
-            color: white;
-            transform: scale(1.02);
-            box-shadow: 0 8px 18px rgba(221,138,106,0.3);
+        .btn-map:active {
+            transform: scale(0.97);
         }
         .rsvp-note {
             background: #fef4ef;
-            border-radius: 55px;
-            padding: 1rem;
+            border-radius: 50px;
+            padding: 0.9rem;
             margin: 1rem 0;
-            transition: 0.2s;
         }
         .footer-note {
             background: #f6e9e2;
-            padding: 0.9rem;
+            padding: 0.8rem;
             text-align: center;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: #a06a54;
             border-radius: 0 0 68px 32px;
         }
-        /* More floating hearts container */
+        /* Floating ornaments */
         .floating-ornaments {
             position: fixed;
             bottom: 0;
@@ -411,28 +411,60 @@
             pointer-events: none;
             z-index: 15;
         }
-        @media (max-width: 550px) {
+        
+        /* RESPONSIVE (Mobile first perfection) */
+        @media (max-width: 600px) {
+            body {
+                padding: 0.8rem;
+            }
             .card-header h1 { font-size: 2rem; }
             .date-number { font-size: 3rem; }
-            .invitation-card { margin: 1rem; }
+            .family-name { font-size: 1.6rem; }
+            .main-message { font-size: 0.85rem; }
+            .loading-text { font-size: 1.4rem; letter-spacing: 4px; }
+            .golden-ring { width: 85px; height: 85px; }
+            .celebration-badge span { font-size: 0.7rem; }
+            .location-text { font-size: 0.9rem; }
+            .btn-map { padding: 0.35rem 1rem; font-size: 0.75rem; }
+        }
+        
+        @media (max-width: 450px) {
+            .card-header h1 { font-size: 1.7rem; }
+            .date-number { font-size: 2.5rem; }
+            .invitation-card { border-radius: 50px 28px 50px 28px; }
+            .card-body { padding: 1.2rem; }
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); opacity: 0.9; }
+            100% { transform: scale(1); }
+        }
+        
+        /* floatAround for sparkles */
+        @keyframes floatAround {
+            0% { transform: translateY(0vh) rotate(0deg); opacity: 0; }
+            20% { opacity: 0.6; }
+            80% { opacity: 0.5; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-    <!-- SPECTACULAR LOADING SCREEN WITH MAXIMAL ANIMATIONS -->
+    <!-- SPECTACULAR LOADING SCREEN (FIXED FOR MOBILE) -->
     <div class="loading-overlay" id="loadingOverlay">
         <div class="loading-content">
             <div class="golden-ring"></div>
             <div class="loading-text">KANAGJEGJI</div>
-            <div class="loading-dots" style="margin-top: 24px;">
+            <div class="loading-dots" style="margin-top: 20px;">
                 <span></span><span></span><span></span>
             </div>
-            <div style="margin-top: 20px; font-size: 0.9rem; color: #ecc8a7; letter-spacing: 2px;">Duke hapur dyert e festës...</div>
+            <div style="margin-top: 18px; font-size: 0.8rem; color: #ecc8a7; letter-spacing: 1px;">Duke hapur dyert e festës...</div>
         </div>
     </div>
 
-    <!-- intro burst particles container (to be triggered after loading) -->
+    <!-- intro burst particles container -->
     <div class="intro-burst" id="burstContainer"></div>
 
     <!-- Background & animated visual layers -->
@@ -441,7 +473,7 @@
     <div class="floating-ornaments" id="floatingOrnaments"></div>
 
     <!-- INVITATION CARD -->
-    <div class="invitation-card" id="inviteCard">
+    <div class="invitation-card" id="inviteCard" style="opacity:0;">
         <div class="card-header">
             <h1 style="color: #fff2e2;">✨ Kanagjegji ✨</h1>
             <div class="celebration-badge">
@@ -466,7 +498,7 @@
             <div class="date-section">
                 <div class="day-name"><i class="fas fa-calendar-alt"></i> E PREMTE, 24 KORRIK</div>
                 <div class="date-number">24</div>
-                <div class="month-year" style="font-size: 1.2rem;">KORRIK 2026</div>
+                <div class="month-year" style="font-size: 1rem; font-weight: 500;">KORRIK 2026</div>
                 <div class="time-info">
                     <i class="far fa-clock"></i> Pritja e musafirëve: <strong>19:00 - 19:30</strong>
                 </div>
@@ -496,170 +528,206 @@
         </div>
     </div>
 
-    <style>
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); opacity: 0.9; }
-            100% { transform: scale(1); }
-        }
-    </style>
-
     <script>
-        // MAXIMUM VISUAL EFFECT: create hundreds of floating dust, stars & gorgeous particles
-        function createGoldenDust() {
-            const dustContainer = document.getElementById('goldenDust');
-            for (let i = 0; i < 120; i++) {
-                const dust = document.createElement('div');
-                dust.classList.add('dust');
-                const size = 3 + Math.random() * 25;
-                dust.style.width = size + 'px';
-                dust.style.height = size + 'px';
-                dust.style.left = Math.random() * 100 + '%';
-                dust.style.animationDuration = 10 + Math.random() * 20 + 's';
-                dust.style.animationDelay = Math.random() * 12 + 's';
-                dust.style.opacity = 0.15 + Math.random() * 0.4;
-                dust.style.background = `radial-gradient(circle, rgba(255,180,100,${0.3+Math.random()*0.5}), rgba(240,140,80,0.2))`;
-                dustContainer.appendChild(dust);
-            }
-        }
-        createGoldenDust();
-
-        // floating romantic ornaments (heart, stars, glowing)
-        const ornamentContainer = document.getElementById('floatingOrnaments');
-        function createFloatingOrnament() {
-            const ornament = document.createElement('div');
-            const symbols = ['🌸', '🌺', '✨', '⭐', '🌹', '💫', '🍂', '🌙'];
-            ornament.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
-            ornament.style.position = 'absolute';
-            ornament.style.bottom = '-50px';
-            ornament.style.left = Math.random() * 100 + '%';
-            ornament.style.fontSize = 20 + Math.random() * 34 + 'px';
-            ornament.style.opacity = 0.4 + Math.random() * 0.5;
-            ornament.style.pointerEvents = 'none';
-            ornament.style.filter = 'drop-shadow(0 0 6px gold)';
-            ornament.style.animation = `floatOrnament ${7 + Math.random() * 9}s linear forwards`;
-            ornamentContainer.appendChild(ornament);
-            setTimeout(() => ornament.remove(), 10000);
-        }
-
-        const floatKeyframes = `
-            @keyframes floatOrnament {
-                0% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
-                100% { transform: translateY(-120vh) rotate(380deg); opacity: 0; }
-            }
-        `;
-        const styleSheet = document.createElement('style');
-        styleSheet.textContent = floatKeyframes;
-        document.head.appendChild(styleSheet);
-
-        setInterval(createFloatingOrnament, 800);
-
-        // BURST PARTICLE EFFECT AFTER LOADING (MAXIMAL DRAMA)
-        function triggerBurstEffect() {
-            const burstContainer = document.getElementById('burstContainer');
-            for (let i = 0; i < 180; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('burst-particle');
-                const size = 5 + Math.random() * 28;
-                particle.style.width = size + 'px';
-                particle.style.height = size + 'px';
-                particle.style.left = (window.innerWidth / 2) + (Math.random() - 0.5) * 80 + 'px';
-                particle.style.top = (window.innerHeight / 2) + (Math.random() - 0.5) * 80 + 'px';
-                const angle = Math.random() * Math.PI * 2;
-                const velocity = 200 + Math.random() * 400;
-                const xMove = Math.cos(angle) * velocity;
-                const yMove = Math.sin(angle) * velocity;
-                particle.style.setProperty('--x', xMove + 'px');
-                particle.style.setProperty('--y', yMove + 'px');
-                particle.style.background = `radial-gradient(circle, #FFD966, #E59866, #D2694D)`;
-                particle.style.boxShadow = '0 0 15px rgba(255,200,100,0.8)';
-                burstContainer.appendChild(particle);
-                setTimeout(() => particle.remove(), 1000);
-            }
-            // additional confetti like effect using fontawesome stars? no but extra sparkles
-            for (let s = 0; s < 60; s++) {
-                const spark = document.createElement('div');
-                spark.innerHTML = '✨';
-                spark.style.position = 'fixed';
-                spark.style.left = (window.innerWidth / 2) + (Math.random() - 0.5) * 100 + 'px';
-                spark.style.top = (window.innerHeight / 2) + (Math.random() - 0.5) * 100 + 'px';
-                spark.style.fontSize = 20 + Math.random() * 30 + 'px';
-                spark.style.pointerEvents = 'none';
-                spark.style.zIndex = '10001';
-                spark.style.opacity = '0.9';
-                spark.style.animation = `sparkFly 1s ease-out forwards`;
-                burstContainer.appendChild(spark);
-                setTimeout(() => spark.remove(), 1200);
-            }
-        }
-
-        const extraKey = `
-            @keyframes sparkFly {
-                0% { transform: scale(0.3) translate(0,0); opacity: 1; }
-                100% { transform: scale(1.8) translate(${Math.random() * 200 - 100}px, ${Math.random() * -300 - 50}px); opacity: 0; }
-            }
-        `;
-        const styleSpark = document.createElement('style');
-        styleSpark.textContent = extraKey;
-        document.head.appendChild(styleSpark);
-
-        // loading screen removal + ultra smooth entrance with music-less drama but max animations
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loadingOverlay');
-            // ensure at least 2.5 sec of beauty
-            setTimeout(() => {
-                if (loader) {
-                    loader.style.opacity = '0';
-                    loader.style.visibility = 'hidden';
-                    triggerBurstEffect();  // spectacular particle blast
-                    // Additional card special animations
-                    const card = document.getElementById('inviteCard');
-                    card.style.animation = 'none';
-                    card.offsetHeight;
-                    card.style.animation = 'cardReveal 1.2s cubic-bezier(0.2, 0.9, 0.4, 1.2) forwards';
+        (function() {
+            // FIX: ensure loading screen is removed on mobile reliably.
+            // We use both 'load' event and a safety timeout, also force hardware acceleration.
+            
+            // Helper: generate dust / ornaments
+            function createGoldenDust() {
+                const dustContainer = document.getElementById('goldenDust');
+                if(!dustContainer) return;
+                for (let i = 0; i < 100; i++) {
+                    const dust = document.createElement('div');
+                    dust.classList.add('dust');
+                    const size = 3 + Math.random() * 22;
+                    dust.style.width = size + 'px';
+                    dust.style.height = size + 'px';
+                    dust.style.left = Math.random() * 100 + '%';
+                    dust.style.animationDuration = 10 + Math.random() * 18 + 's';
+                    dust.style.animationDelay = Math.random() * 12 + 's';
+                    dust.style.opacity = 0.2 + Math.random() * 0.4;
+                    dust.style.background = `radial-gradient(circle, rgba(255,180,100,${0.3+Math.random()*0.5}), rgba(240,140,80,0.2))`;
+                    dustContainer.appendChild(dust);
                 }
-            }, 2800);
-        });
-
-        // Google Maps functionality
-        const mapBtn = document.getElementById('openMapBtn');
-        if(mapBtn) {
-            mapBtn.addEventListener('click', () => {
-                const query = encodeURIComponent('Restorant Agi Lipjan Kosovo');
-                window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank');
-            });
-        }
-
-        // Create more magical floating particles around the card
-        function extraSparkleTrail() {
-            const container = document.getElementById('goldenDust');
-            for (let i=0;i<40;i++) {
-                let flake = document.createElement('div');
-                flake.innerHTML = '✦';
-                flake.style.position = 'absolute';
-                flake.style.fontSize = '12px';
-                flake.style.color = `rgba(220,140,90,${0.3+Math.random()*0.5})`;
-                flake.style.left = Math.random() * 100 + '%';
-                flake.style.top = Math.random() * 100 + '%';
-                flake.style.animation = `floatAround 12s infinite linear`;
-                flake.style.pointerEvents = 'none';
-                container.appendChild(flake);
             }
-        }
-        extraSparkleTrail();
-        
-        // add interactive ripple to date section
-        const dateSection = document.querySelector('.date-section');
-        if(dateSection) {
-            dateSection.addEventListener('mouseenter', () => {
-                dateSection.style.transform = 'scale(1.02)';
-                dateSection.style.transition = '0.2s';
+            
+            function createFloatingOrnamentsSystem() {
+                const ornamentContainer = document.getElementById('floatingOrnaments');
+                if(!ornamentContainer) return;
+                const symbols = ['🌸', '🌺', '✨', '⭐', '🌹', '💫', '🍂', '🌙'];
+                function addOne() {
+                    const ornament = document.createElement('div');
+                    ornament.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+                    ornament.style.position = 'absolute';
+                    ornament.style.bottom = '-40px';
+                    ornament.style.left = Math.random() * 100 + '%';
+                    ornament.style.fontSize = 18 + Math.random() * 32 + 'px';
+                    ornament.style.opacity = 0.4 + Math.random() * 0.5;
+                    ornament.style.pointerEvents = 'none';
+                    ornament.style.filter = 'drop-shadow(0 0 5px gold)';
+                    ornament.style.animation = `floatOrnament ${6 + Math.random() * 8}s linear forwards`;
+                    ornamentContainer.appendChild(ornament);
+                    setTimeout(() => ornament.remove(), 9000);
+                }
+                setInterval(addOne, 900);
+                const floatKeyframes = `
+                    @keyframes floatOrnament {
+                        0% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
+                        100% { transform: translateY(-120vh) rotate(380deg); opacity: 0; }
+                    }
+                `;
+                if(!document.querySelector('#dynamicFloatStyle')) {
+                    const style = document.createElement('style');
+                    style.id = 'dynamicFloatStyle';
+                    style.textContent = floatKeyframes;
+                    document.head.appendChild(style);
+                }
+            }
+            
+            function triggerBurstEffect() {
+                const burstContainer = document.getElementById('burstContainer');
+                if(!burstContainer) return;
+                for (let i = 0; i < 160; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('burst-particle');
+                    const size = 5 + Math.random() * 26;
+                    particle.style.width = size + 'px';
+                    particle.style.height = size + 'px';
+                    particle.style.left = (window.innerWidth / 2) + (Math.random() - 0.5) * 90 + 'px';
+                    particle.style.top = (window.innerHeight / 2) + (Math.random() - 0.5) * 90 + 'px';
+                    const angle = Math.random() * Math.PI * 2;
+                    const velocity = 180 + Math.random() * 380;
+                    const xMove = Math.cos(angle) * velocity;
+                    const yMove = Math.sin(angle) * velocity;
+                    particle.style.setProperty('--x', xMove + 'px');
+                    particle.style.setProperty('--y', yMove + 'px');
+                    particle.style.background = `radial-gradient(circle, #FFD966, #E59866, #D2694D)`;
+                    particle.style.boxShadow = '0 0 12px rgba(255,200,100,0.8)';
+                    burstContainer.appendChild(particle);
+                    setTimeout(() => particle.remove(), 950);
+                }
+                for (let s = 0; s < 55; s++) {
+                    const spark = document.createElement('div');
+                    spark.innerHTML = '✨';
+                    spark.style.position = 'fixed';
+                    spark.style.left = (window.innerWidth / 2) + (Math.random() - 0.5) * 110 + 'px';
+                    spark.style.top = (window.innerHeight / 2) + (Math.random() - 0.5) * 110 + 'px';
+                    spark.style.fontSize = 18 + Math.random() * 28 + 'px';
+                    spark.style.pointerEvents = 'none';
+                    spark.style.zIndex = '10001';
+                    spark.style.opacity = '0.9';
+                    spark.style.animation = `sparkFlyMobile 0.9s ease-out forwards`;
+                    burstContainer.appendChild(spark);
+                    setTimeout(() => spark.remove(), 1100);
+                }
+                const sparkKey = `
+                    @keyframes sparkFlyMobile {
+                        0% { transform: scale(0.3) translate(0,0); opacity: 1; }
+                        100% { transform: scale(1.8) translate(${Math.random() * 180 - 90}px, ${Math.random() * -280 - 40}px); opacity: 0; }
+                    }
+                `;
+                if(!document.querySelector('#dynamicSparkStyle')) {
+                    const styleSpark = document.createElement('style');
+                    styleSpark.id = 'dynamicSparkStyle';
+                    styleSpark.textContent = sparkKey;
+                    document.head.appendChild(styleSpark);
+                }
+            }
+            
+            // Function to safely dismiss loader and reveal content
+            function dismissLoaderAndReveal() {
+                const loader = document.getElementById('loadingOverlay');
+                if (!loader) return;
+                // Ensure we only fire once
+                if (loader.getAttribute('data-dismissed') === 'true') return;
+                loader.setAttribute('data-dismissed', 'true');
+                
+                // Fade out loader
+                loader.style.transition = 'opacity 0.9s cubic-bezier(0.2, 0.9, 0.4, 1), visibility 0.9s';
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
+                
+                // Trigger burst effect
+                triggerBurstEffect();
+                
+                // Animate card entrance
+                const card = document.getElementById('inviteCard');
+                if(card) {
+                    card.style.animation = 'none';
+                    // force reflow
+                    void card.offsetWidth;
+                    card.style.animation = 'cardReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+                    card.style.opacity = '1';
+                }
+            }
+            
+            // Background visual elements init
+            createGoldenDust();
+            createFloatingOrnamentsSystem();
+            
+            // extra sparkle trail on golden-dust layer
+            function extraSparkleTrail() {
+                const container = document.getElementById('goldenDust');
+                if(!container) return;
+                for (let i=0;i<35;i++) {
+                    let flake = document.createElement('div');
+                    flake.innerHTML = '✦';
+                    flake.style.position = 'absolute';
+                    flake.style.fontSize = '10px';
+                    flake.style.color = `rgba(220,140,90,${0.3+Math.random()*0.5})`;
+                    flake.style.left = Math.random() * 100 + '%';
+                    flake.style.top = Math.random() * 100 + '%';
+                    flake.style.animation = `floatAround 14s infinite linear`;
+                    flake.style.pointerEvents = 'none';
+                    container.appendChild(flake);
+                }
+            }
+            extraSparkleTrail();
+            
+            // Map button
+            const mapBtn = document.getElementById('openMapBtn');
+            if(mapBtn) {
+                mapBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.open('https://www.google.com/maps/search/?api=1&query=Restorant+Agi+Lipjan+Kosovo', '_blank');
+                });
+            }
+            
+            // MOBILE FIX: Ensure loader disappears even if load event is delayed or images not triggered
+            // Use both 'load' and a robust timeout to guarantee removal after max 3.2 seconds.
+            let loadingCompleted = false;
+            function finalDismiss() {
+                if(loadingCompleted) return;
+                loadingCompleted = true;
+                dismissLoaderAndReveal();
+            }
+            
+            window.addEventListener('load', function() {
+                // Small delay after load to ensure smooth transition but not too long
+                setTimeout(finalDismiss, 400);
             });
-            dateSection.addEventListener('mouseleave', () => {
-                dateSection.style.transform = 'scale(1)';
-            });
-        }
-        console.log('✨ Ftesa me animacione ekstreme - Familja Aliu ✨');
+            
+            // Safety fallback for any weird mobile scenario: force dismiss after 3 seconds max.
+            setTimeout(function() {
+                if(!loadingCompleted) {
+                    console.log("Safety fallback: forcing loader dismiss");
+                    finalDismiss();
+                }
+            }, 3000);
+            
+            // Touch events to avoid any sticky loader on interactive elements (just in case)
+            document.body.addEventListener('touchstart', function(){}, {passive: true});
+            
+            // Add interactive pulse for date section on mobile/desktop
+            const dateSec = document.querySelector('.date-section');
+            if(dateSec) {
+                dateSec.addEventListener('click', () => {
+                    dateSec.style.transform = 'scale(1.01)';
+                    setTimeout(() => { dateSec.style.transform = ''; }, 200);
+                });
+            }
+        })();
     </script>
 </body>
 </html>
