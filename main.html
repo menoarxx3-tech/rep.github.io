@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Ftesa | Kanagjegji - Familja Aliu</title>
+    <!-- Google Fonts: Elegant & Modern -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Animate.css style animations (lightweight) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #fef7f0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Beautiful animated gradient background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: linear-gradient(135deg, #fdf4e3 0%, #fde8e0 25%, #fef0e6 50%, #fce8dc 75%, #fdf0e5 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 12s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating decorative elements (soft stars/dust) */
+        .floating-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .floating-bg span {
+            position: absolute;
+            display: block;
+            color: rgba(200, 120, 90, 0.15);
+            font-size: 1.5rem;
+            animation: floatAround 18s infinite linear;
+        }
+        @keyframes floatAround {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.2; }
+            90% { opacity: 0.2; }
+            100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Main Card Container */
+        .invitation-card {
+            position: relative;
+            z-index: 10;
+            max-width: 580px;
+            width: 100%;
+            background: rgba(255, 252, 248, 0.96);
+            backdrop-filter: blur(2px);
+            border-radius: 60px 32px 60px 32px;
+            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 130, 100, 0.2), 0 15px 30px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: transform 0.4s ease;
+            animation: fadeInUp 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        .invitation-card:hover {
+            transform: translateY(-6px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header with golden/peach tones */
+        .card-header {
+            background: linear-gradient(115deg, #dc8e6e, #c46a4e, #d十七7a5a);
+            padding: 2rem 2rem 1.8rem;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+            position: relative;
+        }
+        .card-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.4rem;
+            font-weight: 600;
+            color: #fffaf2;
+            letter-spacing: 1px;
+            text-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+        .celebration-badge {
+            display: inline-block;
+            background: rgba(255,245,235,0.25);
+            backdrop-filter: blur(4px);
+            padding: 0.3rem 1.2rem;
+            border-radius: 60px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #fff3e8;
+            margin-top: 12px;
+            letter-spacing: 1px;
+        }
+        .star-icon {
+            animation: twinkle 1.8s infinite;
+            display: inline-block;
+        }
+        @keyframes twinkle {
+            0%,100%{ opacity: 0.6; transform: scale(1);}
+            50%{ opacity: 1; transform: scale(1.1);}
+        }
+
+        /* Body */
+        .card-body {
+            padding: 2rem 2rem 1.8rem;
+            text-align: center;
+        }
+        .invite-greeting {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #bc735a;
+            background: #fef0ea;
+            display: inline-block;
+            padding: 0.3rem 1.6rem;
+            border-radius: 60px;
+            margin-bottom: 1.2rem;
+        }
+        .main-message {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #4e3a30;
+            margin-bottom: 1.5rem;
+        }
+        .main-message strong {
+            color: #bc6a4e;
+            font-weight: 700;
+        }
+        .family-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #bd6e50;
+            margin: 0.5rem 0;
+            letter-spacing: 1px;
+        }
+        /* date section with animation */
+        .date-section {
+            background: rgba(255,240,232,0.7);
+            border-radius: 80px;
+            padding: 1rem 1.2rem;
+            margin: 1.5rem 0;
+            backdrop-filter: blur(4px);
+            border-left: 4px solid #dc8e6e;
+            border-right: 4px solid #dc8e6e;
+            transition: all 0.3s;
+        }
+        .day-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            color: #b25e42;
+        }
+        .date-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #bd5b38;
+            line-height: 1;
+            margin: 0.2rem 0;
+        }
+        .month-year {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        .time-info {
+            background: white;
+            display: inline-block;
+            padding: 0.3rem 1.4rem;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #bc6a4e;
+            margin-top: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        /* animated location text */
+        .location-container {
+            background: #fffaf5;
+            border-radius: 60px;
+            padding: 0.9rem 1rem;
+            margin: 1.2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            border: 1px solid #fad7ca;
+            transition: 0.2s;
+        }
+        .location-icon {
+            background: #dd8a6a;
+            width: 50px;
+            height: 50px;
+            border-radius: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+        }
+        .location-text {
+            font-weight: 600;
+            color: #6b4538;
+            font-size: 1rem;
+        }
+        .location-text span {
+            font-weight: 400;
+            display: block;
+            font-size: 0.85rem;
+            color: #976e5b;
+        }
+        .animated-text {
+            background: linear-gradient(90deg, #dd8a6a, #c46a4e, #e07a5c);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: shine 3s linear infinite;
+            font-weight: 700;
+        }
+        @keyframes shine {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+        .btn-map {
+            background: transparent;
+            border: 2px solid #dd8a6a;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #dd8a6a;
+            transition: 0.2s;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        .btn-map:hover {
+            background: #dd8a6a;
+            color: white;
+        }
+        /* RSVP */
+        .rsvp-note {
+            background: #fef4ef;
+            border-radius: 48px;
+            padding: 0.8rem;
+            margin: 1rem 0;
+        }
+        .rsvp-note p {
+            font-size: 0.85rem;
+            color: #7b5342;
+        }
+        .footer-note {
+            background: #f6e9e2;
+            padding: 0.8rem;
+            text-align: center;
+            font-size: 0.65rem;
+            color: #a06a54;
+            border-radius: 0 0 56px 32px;
+        }
+        /* floating emojis decoration */
+        .floating-emoji {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            pointer-events: none;
+            z-index: 5;
+        }
+        @media (max-width: 550px) {
+            .card-header h1 { font-size: 1.8rem; }
+            .date-number { font-size: 2.8rem; }
+            .invitation-card { margin: 1rem; }
+            .card-body { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="animated-bg"></div>
+    <div class="floating-bg" id="floatingElements"></div>
+    <div class="floating-emoji" id="floatingEmojis"></div>
+
+    <div class="invitation-card animate__animated animate__fadeInUp">
+        <div class="card-header">
+            <h1 style="color: #6b4538;">✨ Kanagjegji ✨</h1>
+            <div class="celebration-badge">
+                <i style="color:#7b5342;" class="fas fa-star star-icon"></i> <p style="color: #7b5342;">Festë e Shenjtë</p> <i class="fas fa-star star-icon"></i>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="invite-greeting">
+                <i class="fas fa-envelope-open-text"></i> Me nder dhe kënaqësi
+            </div>
+            <div class="main-message">
+                <strong>ME SHUMË KËNAQËSI</strong> JU FTOJMË TË MERRNI PJESË NË <br>
+                <strong>FESTËN E KANAGJEGJIT</strong>, E CILA DO TË MBAHET PËR <br>
+                NDER TË <strong>YLLIT TË SHTËPISË SONË</strong>.
+            </div>
+            <div class="family-name">
+                Me respekt <span style="border-bottom: 2px solid #dc8e6e;">Familja Aliu</span>
+            </div>
+
+            <!-- Date & Time Section with animations -->
+            <div class="date-section">
+                <div class="day-name">E PREMTE</div>
+                <div class="date-number">24</div>
+                <div class="month-year">KORRIK</div>
+                <div class="time-info">
+                    <i class="far fa-clock"></i> Pritja e musafirëve: <strong>19:00 - 19:30</strong>
+                </div>
+            </div>
+
+            <!-- Location with animated text effect -->
+            <div class="location-container">
+                <div class="location-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="location-text">
+                    <span class="animated-text">RESTORANTI: AGI</span>
+                    <span>Lipjan, Kosovë</span>
+                </div>
+                <button class="btn-map" id="openMapBtn">
+                    <i class="fas fa-map-marker-alt"></i> Harta
+                </button>
+            </div>
+
+            <!-- Additional elegant note -->
+            <div class="rsvp-note">
+                <p><i class="fas fa-heart" style="color:#dc8e6e;"></i> <strong>Konfirmimi i pjesëmarrjes</strong> deri më <strong>20 Korrik 2026</strong> <i class="fas fa-heart" style="color:#dc8e6e;"></i></p>
+                <p style="margin-top: 6px;"><i class="fas fa-phone-alt"></i> +383 44 123 456 &nbsp;|&nbsp; <i class="fab fa-whatsapp"></i> Familja Aliu</p>
+            </div>
+
+            <div class="footer-note">
+                <i class="far fa-smile"></i> Prania juaj e bën këtë ditë edhe më të veçantë. <i class="far fa-smile"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating background elements (stars, hearts, soft petals)
+        function createFloatingElements() {
+            const container = document.getElementById('floatingElements');
+            const icons = ['⭐', '✨', '🌸', '🌙', '🌟', '🍃'];
+            for (let i = 0; i < 45; i++) {
+                const el = document.createElement('span');
+                el.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+                const size = 14 + Math.random() * 30;
+                el.style.fontSize = size + 'px';
+                el.style.left = Math.random() * 100 + '%';
+                el.style.animationDuration = 12 + Math.random() * 15 + 's';
+                el.style.animationDelay = Math.random() * 10 + 's';
+                el.style.opacity = 0.1 + Math.random() * 0.3;
+                el.style.position = 'absolute';
+                el.style.bottom = '-50px';
+                container.appendChild(el);
+            }
+        }
+        createFloatingElements();
+
+        // floating emoji hearts (for extra atmosphere)
+        const emojiContainer = document.getElementById('floatingEmojis');
+        function addFloatingEmoji() {
+            const emoji = document.createElement('div');
+            const emojis = ['🌸', '🌹', '✨', '⭐', '💫', '🍃'];
+            emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+            emoji.style.position = 'absolute';
+            emoji.style.bottom = '-30px';
+            emoji.style.left = Math.random() * 100 + '%';
+            emoji.style.fontSize = 18 + Math.random() * 28 + 'px';
+            emoji.style.opacity = 0.4 + Math.random() * 0.4;
+            emoji.style.pointerEvents = 'none';
+            emoji.style.animation = `floatEmoji ${6 + Math.random() * 7}s linear forwards`;
+            emojiContainer.appendChild(emoji);
+            setTimeout(() => emoji.remove(), 8000);
+        }
+
+        // keyframes for floating emojis
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = `
+            @keyframes floatEmoji {
+                0% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
+                100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(styleSheet);
+
+        setInterval(addFloatingEmoji, 1500);
+
+        // Google Maps link for Restorant Agi, Lipjan
+        const mapBtn = document.getElementById('openMapBtn');
+        mapBtn.addEventListener('click', () => {
+            const query = encodeURIComponent('Restorant Agi Lipjan Kosovo');
+            window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank');
+        });
+
+        // additional animation on card load
+        console.log('Ftesa e Kanagjegjit - Familja Aliu');
+    </script>
+</body>
+</html>
