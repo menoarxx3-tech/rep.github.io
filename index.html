@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Ftesa | Kanagjegji - Familja Aliu</title>
+    <title>Kanagjegji | Familja Aliu - Ftesa Magjike</title>
     <!-- Google Fonts: Elegant & Modern -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Animate.css style animations (lightweight) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         * {
             margin: 0;
@@ -17,6 +15,115 @@
             box-sizing: border-box;
         }
 
+        /* --- SUPERB LOADING & INTRO ANIMATIONS (MAXIMAL) --- */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #1f0f08, #0a0502);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+            transition: opacity 1.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), visibility 1.8s;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .loading-content {
+            text-align: center;
+            transform: scale(0.95);
+            animation: breathingGlow 1.4s ease-in-out infinite alternate;
+        }
+
+        @keyframes breathingGlow {
+            0% { transform: scale(0.95); text-shadow: 0 0 10px rgba(255,215,150,0.5); }
+            100% { transform: scale(1.05); text-shadow: 0 0 35px rgba(255,200,120,0.9); }
+        }
+
+        .golden-ring {
+            width: 120px;
+            height: 120px;
+            border: 4px solid rgba(221, 138, 106, 0.6);
+            border-top: 4px solid #ffd966;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            animation: spinGolden 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+            box-shadow: 0 0 30px rgba(255, 200, 100, 0.6);
+        }
+
+        @keyframes spinGolden {
+            0% { transform: rotate(0deg); border-top-color: #ffbc6e; border-right-color: #dd8a6e; }
+            50% { transform: rotate(180deg); border-top-color: #e69b7a; border-left-color: #ffe6b3; }
+            100% { transform: rotate(360deg); border-top-color: #ffbc6e; border-right-color: #dd8a6e; }
+        }
+
+        .loading-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            color: #fbe9c3;
+            letter-spacing: 8px;
+            margin-top: 1rem;
+            background: linear-gradient(135deg, #f7d48b, #e4a575);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            animation: textWave 1.5s infinite;
+        }
+
+        @keyframes textWave {
+            0% { letter-spacing: 4px; opacity: 0.7; }
+            50% { letter-spacing: 12px; opacity: 1; }
+            100% { letter-spacing: 4px; opacity: 0.7; }
+        }
+
+        .loading-dots span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #e4a575;
+            border-radius: 50%;
+            margin: 0 6px;
+            animation: bounceDot 1s infinite alternate;
+        }
+        .loading-dots span:nth-child(2) { animation-delay: 0.2s; background: #dd8a6e; }
+        .loading-dots span:nth-child(3) { animation-delay: 0.4s; background: #ffbc6e; }
+
+        @keyframes bounceDot {
+            0% { transform: translateY(0px); opacity: 0.4; }
+            100% { transform: translateY(-18px); opacity: 1; }
+        }
+
+        /* Particle burst intro effect */
+        .intro-burst {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10000;
+        }
+
+        .burst-particle {
+            position: absolute;
+            background: radial-gradient(circle, #ffd89b, #e9a17a);
+            border-radius: 50%;
+            filter: blur(2px);
+            animation: burstFly 1s ease-out forwards;
+        }
+
+        @keyframes burstFly {
+            0% { transform: scale(0) translate(0,0); opacity: 1; }
+            100% { transform: scale(1.5) translate(var(--x), var(--y)); opacity: 0; }
+        }
+
+        /* body & rest of the ultra-beautiful design */
         body {
             font-family: 'Montserrat', sans-serif;
             background: #fef7f0;
@@ -29,7 +136,7 @@
             overflow-x: hidden;
         }
 
-        /* Beautiful animated gradient background */
+        /* Spectacular animated aurora background */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -37,107 +144,113 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            background: linear-gradient(135deg, #fdf4e3 0%, #fde8e0 25%, #fef0e6 50%, #fce8dc 75%, #fdf0e5 100%);
+            background: linear-gradient(125deg, #fae6d4, #fde0cf, #feece2, #fce4d4, #fff0e6);
             background-size: 400% 400%;
-            animation: gradientShift 12s ease infinite;
+            animation: gradientShift 14s ease infinite;
         }
-
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* Floating decorative elements (soft stars/dust) */
-        .floating-bg {
+        /* Swirling golden dust */
+        .golden-dust {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 1;
+            z-index: 2;
             overflow: hidden;
         }
-        .floating-bg span {
+        .dust {
             position: absolute;
-            display: block;
-            color: rgba(200, 120, 90, 0.15);
-            font-size: 1.5rem;
-            animation: floatAround 18s infinite linear;
+            background: radial-gradient(circle, rgba(255,200,120,0.5), transparent);
+            border-radius: 50%;
+            filter: blur(5px);
+            animation: driftDust 16s infinite linear;
         }
-        @keyframes floatAround {
+        @keyframes driftDust {
             0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.2; }
-            90% { opacity: 0.2; }
+            20% { opacity: 0.6; }
+            80% { opacity: 0.6; }
             100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
         }
 
-        /* Main Card Container */
+        /* Main Card ultimate elegance */
         .invitation-card {
             position: relative;
-            z-index: 10;
-            max-width: 580px;
+            z-index: 20;
+            max-width: 620px;
             width: 100%;
-            background: rgba(255, 252, 248, 0.96);
-            backdrop-filter: blur(2px);
-            border-radius: 60px 32px 60px 32px;
-            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(200, 130, 100, 0.2), 0 15px 30px rgba(0, 0, 0, 0.05);
+            background: rgba(255, 252, 246, 0.96);
+            backdrop-filter: blur(4px);
+            border-radius: 70px 36px 70px 36px;
+            box-shadow: 0 45px 85px rgba(0, 0, 0, 0.2), 0 0 0 2px rgba(220, 130, 90, 0.3), 0 20px 35px rgba(0,0,0,0.1);
             overflow: hidden;
-            transition: transform 0.4s ease;
-            animation: fadeInUp 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            transition: all 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.2);
+            opacity: 0;
+            transform: translateY(60px) scale(0.96);
+            animation: cardReveal 1.6s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes cardReveal {
+            0% { opacity: 0; transform: translateY(70px) scale(0.92); filter: blur(12px); }
+            100% { opacity: 1; transform: translateY(0px) scale(1); filter: blur(0); }
         }
 
         .invitation-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 55px 90px rgba(0, 0, 0, 0.2);
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Header with golden/peach tones */
+        /* Header with luxurious ornament */
         .card-header {
-            background: linear-gradient(115deg, #dc8e6e, #c46a4e, #d十七7a5a);
-            padding: 2rem 2rem 1.8rem;
+            background: linear-gradient(145deg, #dd8e6e, #bc674a, #d97f5c);
+            padding: 2rem 2rem 2rem;
             text-align: center;
-            clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
             position: relative;
+            overflow: hidden;
+        }
+        .card-header::before {
+            content: "✨";
+            position: absolute;
+            font-size: 110px;
+            right: -20px;
+            bottom: -30px;
+            opacity: 0.12;
+            pointer-events: none;
+            transform: rotate(10deg);
         }
         .card-header h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.4rem;
-            font-weight: 600;
-            color: #fffaf2;
-            letter-spacing: 1px;
-            text-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #fff7ea;
+            letter-spacing: 2px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
         .celebration-badge {
-            display: inline-block;
-            background: rgba(255,245,235,0.25);
-            backdrop-filter: blur(4px);
-            padding: 0.3rem 1.2rem;
-            border-radius: 60px;
-            font-size: 0.8rem;
-            font-weight: 500;
+            background: rgba(255,240,225,0.3);
+            backdrop-filter: blur(12px);
+            padding: 0.4rem 1.6rem;
+            border-radius: 100px;
+            font-weight: 600;
             color: #fff3e8;
-            margin-top: 12px;
-            letter-spacing: 1px;
+            margin-top: 14px;
+            display: inline-flex;
+            gap: 10px;
         }
         .star-icon {
-            animation: twinkle 1.8s infinite;
-            display: inline-block;
+            animation: celestialSpin 2.2s infinite;
         }
-        @keyframes twinkle {
-            0%,100%{ opacity: 0.6; transform: scale(1);}
-            50%{ opacity: 1; transform: scale(1.1);}
+        @keyframes celestialSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(15deg) scale(1.2); text-shadow: 0 0 8px gold; }
+            100% { transform: rotate(0deg) scale(1); }
         }
 
         /* Body */
@@ -147,183 +260,194 @@
         }
         .invite-greeting {
             font-size: 0.9rem;
-            font-weight: 500;
+            font-weight: 600;
             color: #bc735a;
             background: #fef0ea;
             display: inline-block;
-            padding: 0.3rem 1.6rem;
+            padding: 0.4rem 2rem;
             border-radius: 60px;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.3rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
         }
         .main-message {
             font-size: 1rem;
             line-height: 1.7;
             color: #4e3a30;
-            margin-bottom: 1.5rem;
-        }
-        .main-message strong {
-            color: #bc6a4e;
-            font-weight: 700;
+            margin-bottom: 1rem;
         }
         .family-name {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
             color: #bd6e50;
-            margin: 0.5rem 0;
-            letter-spacing: 1px;
+            margin: 0.2rem 0 1rem;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #c06646, #e49473);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
         }
-        /* date section with animation */
         .date-section {
-            background: rgba(255,240,232,0.7);
-            border-radius: 80px;
-            padding: 1rem 1.2rem;
+            background: rgba(253, 235, 224, 0.8);
+            border-radius: 90px;
+            padding: 1.2rem;
             margin: 1.5rem 0;
-            backdrop-filter: blur(4px);
-            border-left: 4px solid #dc8e6e;
-            border-right: 4px solid #dc8e6e;
-            transition: all 0.3s;
+            border: 1px solid #f6cfbc;
+            transition: 0.3s;
+            animation: gentlePulse 2s infinite;
+        }
+        @keyframes gentlePulse {
+            0% { box-shadow: 0 0 0 0 rgba(220, 142, 110, 0.3); }
+            70% { box-shadow: 0 0 0 12px rgba(220, 142, 110, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(220, 142, 110, 0); }
         }
         .day-name {
-            font-weight: 600;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 3px;
             color: #b25e42;
         }
         .date-number {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 3.5rem;
+            font-size: 4.2rem;
             font-weight: 800;
             color: #bd5b38;
             line-height: 1;
-            margin: 0.2rem 0;
-        }
-        .month-year {
-            font-weight: 500;
-            font-size: 1rem;
+            margin: 0.1rem 0;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.05);
         }
         .time-info {
             background: white;
             display: inline-block;
-            padding: 0.3rem 1.4rem;
+            padding: 0.4rem 1.6rem;
             border-radius: 60px;
             font-size: 0.85rem;
-            font-weight: 600;
+            font-weight: 700;
             color: #bc6a4e;
             margin-top: 10px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        /* animated location text */
         .location-container {
             background: #fffaf5;
-            border-radius: 60px;
-            padding: 0.9rem 1rem;
-            margin: 1.2rem 0;
+            border-radius: 70px;
+            padding: 1rem 1.2rem;
+            margin: 1.5rem 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
+            gap: 20px;
             flex-wrap: wrap;
-            border: 1px solid #fad7ca;
-            transition: 0.2s;
+            border: 1px solid #f7cdbb;
+            transition: all 0.2s;
         }
         .location-icon {
-            background: #dd8a6a;
-            width: 50px;
-            height: 50px;
+            background: linear-gradient(145deg, #dd8a6a, #c26544);
+            width: 56px;
+            height: 56px;
             border-radius: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.3rem;
+            font-size: 1.6rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
         .location-text {
-            font-weight: 600;
+            font-weight: 700;
             color: #6b4538;
-            font-size: 1rem;
-        }
-        .location-text span {
-            font-weight: 400;
-            display: block;
-            font-size: 0.85rem;
-            color: #976e5b;
+            font-size: 1.1rem;
         }
         .animated-text {
-            background: linear-gradient(90deg, #dd8a6a, #c46a4e, #e07a5c);
+            background: linear-gradient(130deg, #dd8a6a, #bf6d50, #e69b78);
             background-size: 200% auto;
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            animation: shine 3s linear infinite;
-            font-weight: 700;
+            animation: shimmerMove 3s infinite linear;
+            font-weight: 800;
         }
-        @keyframes shine {
-            0% { background-position: 0% center; }
-            100% { background-position: 200% center; }
+        @keyframes shimmerMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
         }
         .btn-map {
             background: transparent;
             border: 2px solid #dd8a6a;
-            padding: 0.4rem 1.2rem;
+            padding: 0.5rem 1.4rem;
             border-radius: 50px;
-            font-weight: 600;
+            font-weight: 700;
             color: #dd8a6a;
-            transition: 0.2s;
+            transition: all 0.3s ease;
             cursor: pointer;
             font-size: 0.85rem;
         }
         .btn-map:hover {
             background: #dd8a6a;
             color: white;
+            transform: scale(1.02);
+            box-shadow: 0 8px 18px rgba(221,138,106,0.3);
         }
-        /* RSVP */
         .rsvp-note {
             background: #fef4ef;
-            border-radius: 48px;
-            padding: 0.8rem;
+            border-radius: 55px;
+            padding: 1rem;
             margin: 1rem 0;
-        }
-        .rsvp-note p {
-            font-size: 0.85rem;
-            color: #7b5342;
+            transition: 0.2s;
         }
         .footer-note {
             background: #f6e9e2;
-            padding: 0.8rem;
+            padding: 0.9rem;
             text-align: center;
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             color: #a06a54;
-            border-radius: 0 0 56px 32px;
+            border-radius: 0 0 68px 32px;
         }
-        /* floating emojis decoration */
-        .floating-emoji {
+        /* More floating hearts container */
+        .floating-ornaments {
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
             pointer-events: none;
-            z-index: 5;
+            z-index: 15;
         }
         @media (max-width: 550px) {
-            .card-header h1 { font-size: 1.8rem; }
-            .date-number { font-size: 2.8rem; }
+            .card-header h1 { font-size: 2rem; }
+            .date-number { font-size: 3rem; }
             .invitation-card { margin: 1rem; }
-            .card-body { padding: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="animated-bg"></div>
-    <div class="floating-bg" id="floatingElements"></div>
-    <div class="floating-emoji" id="floatingEmojis"></div>
+    <!-- SPECTACULAR LOADING SCREEN WITH MAXIMAL ANIMATIONS -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="golden-ring"></div>
+            <div class="loading-text">KANAGJEGJI</div>
+            <div class="loading-dots" style="margin-top: 24px;">
+                <span></span><span></span><span></span>
+            </div>
+            <div style="margin-top: 20px; font-size: 0.9rem; color: #ecc8a7; letter-spacing: 2px;">Duke hapur dyert e festës...</div>
+        </div>
+    </div>
 
-    <div class="invitation-card animate__animated animate__fadeInUp">
+    <!-- intro burst particles container (to be triggered after loading) -->
+    <div class="intro-burst" id="burstContainer"></div>
+
+    <!-- Background & animated visual layers -->
+    <div class="animated-bg"></div>
+    <div class="golden-dust" id="goldenDust"></div>
+    <div class="floating-ornaments" id="floatingOrnaments"></div>
+
+    <!-- INVITATION CARD -->
+    <div class="invitation-card" id="inviteCard">
         <div class="card-header">
-            <h1 style="color: #6b4538;">✨ Kanagjegji ✨</h1>
+            <h1 style="color: #fff2e2;">✨ Kanagjegji ✨</h1>
             <div class="celebration-badge">
-                <i style="color:#7b5342;" class="fas fa-star star-icon"></i> <p style="color: #7b5342;">Festë e Shenjtë</p> <i class="fas fa-star star-icon"></i>
+                <i class="fas fa-star star-icon" style="color:#ffea9e;"></i> 
+                <span>Festë e Shenjtë & Traditë</span> 
+                <i class="fas fa-star star-icon" style="color:#ffea9e;"></i>
             </div>
         </div>
         <div class="card-body">
@@ -332,108 +456,210 @@
             </div>
             <div class="main-message">
                 <strong>ME SHUMË KËNAQËSI</strong> JU FTOJMË TË MERRNI PJESË NË <br>
-                <strong>FESTËN E KANAGJEGJIT</strong>, E CILA DO TË MBAHET PËR <br>
+                <strong>FESTËN E MADHËRISHME TË KANAGJEGJIT</strong>, E CILA ORGANIZOHET PËR <br>
                 NDER TË <strong>YLLIT TË SHTËPISË SONË</strong>.
             </div>
             <div class="family-name">
-                Me respekt <span style="border-bottom: 2px solid #dc8e6e;">Familja Aliu</span>
+                Me respekt ✦ Familja Aliu ✦
             </div>
 
-            <!-- Date & Time Section with animations -->
             <div class="date-section">
-                <div class="day-name">E PREMTE</div>
+                <div class="day-name"><i class="fas fa-calendar-alt"></i> E PREMTE, 24 KORRIK</div>
                 <div class="date-number">24</div>
-                <div class="month-year">KORRIK</div>
+                <div class="month-year" style="font-size: 1.2rem;">KORRIK 2026</div>
                 <div class="time-info">
                     <i class="far fa-clock"></i> Pritja e musafirëve: <strong>19:00 - 19:30</strong>
                 </div>
             </div>
 
-            <!-- Location with animated text effect -->
             <div class="location-container">
                 <div class="location-icon">
                     <i class="fas fa-utensils"></i>
                 </div>
                 <div class="location-text">
-                    <span class="animated-text">RESTORANTI: AGI</span>
-                    <span>Lipjan, Kosovë</span>
+                    <span class="animated-text">RESTORANTI AGI</span>
+                    <span>✨ Lipjan, Kosovë ✨</span>
                 </div>
                 <button class="btn-map" id="openMapBtn">
                     <i class="fas fa-map-marker-alt"></i> Harta
                 </button>
             </div>
 
-            <!-- Additional elegant note -->
             <div class="rsvp-note">
-                <p><i class="fas fa-heart" style="color:#dc8e6e;"></i> <strong>Konfirmimi i pjesëmarrjes</strong> deri më <strong>20 Korrik 2026</strong> <i class="fas fa-heart" style="color:#dc8e6e;"></i></p>
-                <p style="margin-top: 6px;"><i class="fas fa-phone-alt"></i> +383 44 123 456 &nbsp;|&nbsp; <i class="fab fa-whatsapp"></i> Familja Aliu</p>
+                <p><i class="fas fa-heart" style="color:#dc8e6e; animation: heartbeat 1s infinite;"></i> <strong>Konfirmimi i pjesëmarrjes</strong> deri më <strong>20 Korrik 2026</strong> <i class="fas fa-heart" style="color:#dc8e6e; animation: heartbeat 1s infinite 0.3s;"></i></p>
+                <p style="margin-top: 8px;"><i class="fas fa-phone-alt"></i> +383 44 123 456 &nbsp;|&nbsp; <i class="fab fa-whatsapp"></i> Familja Aliu</p>
             </div>
 
             <div class="footer-note">
-                <i class="far fa-smile"></i> Prania juaj e bën këtë ditë edhe më të veçantë. <i class="far fa-smile"></i>
+                <i class="far fa-smile"></i> Prania juaj ndriçon çdo cep të kësaj nate magjike. <i class="far fa-smile"></i>
             </div>
         </div>
     </div>
 
+    <style>
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); opacity: 0.9; }
+            100% { transform: scale(1); }
+        }
+    </style>
+
     <script>
-        // Create floating background elements (stars, hearts, soft petals)
-        function createFloatingElements() {
-            const container = document.getElementById('floatingElements');
-            const icons = ['⭐', '✨', '🌸', '🌙', '🌟', '🍃'];
-            for (let i = 0; i < 45; i++) {
-                const el = document.createElement('span');
-                el.innerHTML = icons[Math.floor(Math.random() * icons.length)];
-                const size = 14 + Math.random() * 30;
-                el.style.fontSize = size + 'px';
-                el.style.left = Math.random() * 100 + '%';
-                el.style.animationDuration = 12 + Math.random() * 15 + 's';
-                el.style.animationDelay = Math.random() * 10 + 's';
-                el.style.opacity = 0.1 + Math.random() * 0.3;
-                el.style.position = 'absolute';
-                el.style.bottom = '-50px';
-                container.appendChild(el);
+        // MAXIMUM VISUAL EFFECT: create hundreds of floating dust, stars & gorgeous particles
+        function createGoldenDust() {
+            const dustContainer = document.getElementById('goldenDust');
+            for (let i = 0; i < 120; i++) {
+                const dust = document.createElement('div');
+                dust.classList.add('dust');
+                const size = 3 + Math.random() * 25;
+                dust.style.width = size + 'px';
+                dust.style.height = size + 'px';
+                dust.style.left = Math.random() * 100 + '%';
+                dust.style.animationDuration = 10 + Math.random() * 20 + 's';
+                dust.style.animationDelay = Math.random() * 12 + 's';
+                dust.style.opacity = 0.15 + Math.random() * 0.4;
+                dust.style.background = `radial-gradient(circle, rgba(255,180,100,${0.3+Math.random()*0.5}), rgba(240,140,80,0.2))`;
+                dustContainer.appendChild(dust);
             }
         }
-        createFloatingElements();
+        createGoldenDust();
 
-        // floating emoji hearts (for extra atmosphere)
-        const emojiContainer = document.getElementById('floatingEmojis');
-        function addFloatingEmoji() {
-            const emoji = document.createElement('div');
-            const emojis = ['🌸', '🌹', '✨', '⭐', '💫', '🍃'];
-            emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
-            emoji.style.position = 'absolute';
-            emoji.style.bottom = '-30px';
-            emoji.style.left = Math.random() * 100 + '%';
-            emoji.style.fontSize = 18 + Math.random() * 28 + 'px';
-            emoji.style.opacity = 0.4 + Math.random() * 0.4;
-            emoji.style.pointerEvents = 'none';
-            emoji.style.animation = `floatEmoji ${6 + Math.random() * 7}s linear forwards`;
-            emojiContainer.appendChild(emoji);
-            setTimeout(() => emoji.remove(), 8000);
+        // floating romantic ornaments (heart, stars, glowing)
+        const ornamentContainer = document.getElementById('floatingOrnaments');
+        function createFloatingOrnament() {
+            const ornament = document.createElement('div');
+            const symbols = ['🌸', '🌺', '✨', '⭐', '🌹', '💫', '🍂', '🌙'];
+            ornament.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+            ornament.style.position = 'absolute';
+            ornament.style.bottom = '-50px';
+            ornament.style.left = Math.random() * 100 + '%';
+            ornament.style.fontSize = 20 + Math.random() * 34 + 'px';
+            ornament.style.opacity = 0.4 + Math.random() * 0.5;
+            ornament.style.pointerEvents = 'none';
+            ornament.style.filter = 'drop-shadow(0 0 6px gold)';
+            ornament.style.animation = `floatOrnament ${7 + Math.random() * 9}s linear forwards`;
+            ornamentContainer.appendChild(ornament);
+            setTimeout(() => ornament.remove(), 10000);
         }
 
-        // keyframes for floating emojis
-        const styleSheet = document.createElement('style');
-        styleSheet.textContent = `
-            @keyframes floatEmoji {
-                0% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
-                100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+        const floatKeyframes = `
+            @keyframes floatOrnament {
+                0% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+                100% { transform: translateY(-120vh) rotate(380deg); opacity: 0; }
             }
         `;
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = floatKeyframes;
         document.head.appendChild(styleSheet);
 
-        setInterval(addFloatingEmoji, 1500);
+        setInterval(createFloatingOrnament, 800);
 
-        // Google Maps link for Restorant Agi, Lipjan
-        const mapBtn = document.getElementById('openMapBtn');
-        mapBtn.addEventListener('click', () => {
-            const query = encodeURIComponent('Restorant Agi Lipjan Kosovo');
-            window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank');
+        // BURST PARTICLE EFFECT AFTER LOADING (MAXIMAL DRAMA)
+        function triggerBurstEffect() {
+            const burstContainer = document.getElementById('burstContainer');
+            for (let i = 0; i < 180; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('burst-particle');
+                const size = 5 + Math.random() * 28;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = (window.innerWidth / 2) + (Math.random() - 0.5) * 80 + 'px';
+                particle.style.top = (window.innerHeight / 2) + (Math.random() - 0.5) * 80 + 'px';
+                const angle = Math.random() * Math.PI * 2;
+                const velocity = 200 + Math.random() * 400;
+                const xMove = Math.cos(angle) * velocity;
+                const yMove = Math.sin(angle) * velocity;
+                particle.style.setProperty('--x', xMove + 'px');
+                particle.style.setProperty('--y', yMove + 'px');
+                particle.style.background = `radial-gradient(circle, #FFD966, #E59866, #D2694D)`;
+                particle.style.boxShadow = '0 0 15px rgba(255,200,100,0.8)';
+                burstContainer.appendChild(particle);
+                setTimeout(() => particle.remove(), 1000);
+            }
+            // additional confetti like effect using fontawesome stars? no but extra sparkles
+            for (let s = 0; s < 60; s++) {
+                const spark = document.createElement('div');
+                spark.innerHTML = '✨';
+                spark.style.position = 'fixed';
+                spark.style.left = (window.innerWidth / 2) + (Math.random() - 0.5) * 100 + 'px';
+                spark.style.top = (window.innerHeight / 2) + (Math.random() - 0.5) * 100 + 'px';
+                spark.style.fontSize = 20 + Math.random() * 30 + 'px';
+                spark.style.pointerEvents = 'none';
+                spark.style.zIndex = '10001';
+                spark.style.opacity = '0.9';
+                spark.style.animation = `sparkFly 1s ease-out forwards`;
+                burstContainer.appendChild(spark);
+                setTimeout(() => spark.remove(), 1200);
+            }
+        }
+
+        const extraKey = `
+            @keyframes sparkFly {
+                0% { transform: scale(0.3) translate(0,0); opacity: 1; }
+                100% { transform: scale(1.8) translate(${Math.random() * 200 - 100}px, ${Math.random() * -300 - 50}px); opacity: 0; }
+            }
+        `;
+        const styleSpark = document.createElement('style');
+        styleSpark.textContent = extraKey;
+        document.head.appendChild(styleSpark);
+
+        // loading screen removal + ultra smooth entrance with music-less drama but max animations
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loadingOverlay');
+            // ensure at least 2.5 sec of beauty
+            setTimeout(() => {
+                if (loader) {
+                    loader.style.opacity = '0';
+                    loader.style.visibility = 'hidden';
+                    triggerBurstEffect();  // spectacular particle blast
+                    // Additional card special animations
+                    const card = document.getElementById('inviteCard');
+                    card.style.animation = 'none';
+                    card.offsetHeight;
+                    card.style.animation = 'cardReveal 1.2s cubic-bezier(0.2, 0.9, 0.4, 1.2) forwards';
+                }
+            }, 2800);
         });
 
-        // additional animation on card load
-        console.log('Ftesa e Kanagjegjit - Familja Aliu');
+        // Google Maps functionality
+        const mapBtn = document.getElementById('openMapBtn');
+        if(mapBtn) {
+            mapBtn.addEventListener('click', () => {
+                const query = encodeURIComponent('Restorant Agi Lipjan Kosovo');
+                window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank');
+            });
+        }
+
+        // Create more magical floating particles around the card
+        function extraSparkleTrail() {
+            const container = document.getElementById('goldenDust');
+            for (let i=0;i<40;i++) {
+                let flake = document.createElement('div');
+                flake.innerHTML = '✦';
+                flake.style.position = 'absolute';
+                flake.style.fontSize = '12px';
+                flake.style.color = `rgba(220,140,90,${0.3+Math.random()*0.5})`;
+                flake.style.left = Math.random() * 100 + '%';
+                flake.style.top = Math.random() * 100 + '%';
+                flake.style.animation = `floatAround 12s infinite linear`;
+                flake.style.pointerEvents = 'none';
+                container.appendChild(flake);
+            }
+        }
+        extraSparkleTrail();
+        
+        // add interactive ripple to date section
+        const dateSection = document.querySelector('.date-section');
+        if(dateSection) {
+            dateSection.addEventListener('mouseenter', () => {
+                dateSection.style.transform = 'scale(1.02)';
+                dateSection.style.transition = '0.2s';
+            });
+            dateSection.addEventListener('mouseleave', () => {
+                dateSection.style.transform = 'scale(1)';
+            });
+        }
+        console.log('✨ Ftesa me animacione ekstreme - Familja Aliu ✨');
     </script>
 </body>
 </html>
